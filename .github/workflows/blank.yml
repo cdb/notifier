@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Test
+        run: echo "PAT: $AQWS"
+        env:
+          AQWS: ${{ secrets.PERSONAL_ACCESS_TOKEN}}
       - name: Find Notifications
         uses: ./
         env:
