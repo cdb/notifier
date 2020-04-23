@@ -1,0 +1,14 @@
+name: Post to Slack
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  find-notifications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Find Notifications
+        uses: ./
+    
