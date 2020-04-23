@@ -15,6 +15,7 @@ jobs:
       - name: Test
         run: |
           echo "PAT: $AQWS"
+          echo -n $AQWS | wc -m
         env:
           AQWS: ${{ secrets.PERSONAL_ACCESS_TOKEN}}
       - name: Find Notifications
