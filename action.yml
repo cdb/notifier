@@ -1,0 +1,10 @@
+name: 'Slack Notifier'
+description: 'Send your notifications to slack'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+runs:
+  using: 'node12'
+  main: 'index.js'
