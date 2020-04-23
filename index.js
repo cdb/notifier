@@ -6,10 +6,11 @@ async function run() {
   try {
 
       const PERSONAL_ACCESS_TOKEN = core.getInput('PERSONAL_ACCESS_TOKEN')
+      console.log("length of PERSONAL_ACCESS_TOKEN: ", PERSONAL_ACCESS_TOKEN.length)
       const SLACK_URL = core.getInput('SLACK_URL')
     
       const octokit = new github.GitHub(PERSONAL_ACCESS_TOKEN);
-    
+
       const notifs = await octokit.activity.listNotifications({participating: true, per_page: 100});
 
       notifs.data.filter(({reason}) => {
