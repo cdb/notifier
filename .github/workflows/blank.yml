@@ -20,7 +20,7 @@ jobs:
           AQWS: ${{ secrets.PERSONAL_ACCESS_TOKEN}}
       - name: Find Notifications
         uses: ./
-        env:
+        with:
           SLACK_URL: ${{ secrets.SLACK_URL }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     
