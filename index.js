@@ -14,7 +14,7 @@ async function run() {
       }).
       map(async ({subject: {title, url}}) => {
         const res = await octokit.request(`GET ${url}`)
-        return `Title: ${title} URL: ${res.data._links.html.href}`
+        return `Title: ${title} URL: ${res.data.html_url}`
       }).
       forEach(async body => {
         body = await body
