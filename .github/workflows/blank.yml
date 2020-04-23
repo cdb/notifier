@@ -3,7 +3,7 @@ name: Post to Slack
 on:
   push:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
 
 jobs:
   find-notifications:
@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Find Notifications
         uses: ./
-        env:
+        with:
           SLACK_URL: ${{ secrets.SLACK_URL }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     
