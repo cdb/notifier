@@ -1,6 +1,7 @@
 name: Post to Slack
 
 on:
+  push:
   schedule:
     - cron: "*/5 * * * *"
 
@@ -9,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Find Notifications
         uses: ./
     
