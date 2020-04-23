@@ -3,7 +3,7 @@ name: Post to Slack
 on:
   push:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
 
 jobs:
   find-notifications:
@@ -12,12 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test
-        run: |
-          echo "PAT: $AQWS"
-          echo -n $AQWS | wc -m
-        env:
-          AQWS: ${{ secrets.PERSONAL_ACCESS_TOKEN}}
+
       - name: Find Notifications
         uses: ./
         with:
