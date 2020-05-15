@@ -15,7 +15,7 @@ jobs:
 
       - name: Set Since
         id: get-since
-        runs: |
+        run: |
           echo "::set-output name=since::$(cat ./last-touched)"
 
       - name: Find Notifications
@@ -26,7 +26,7 @@ jobs:
           SINCE: ${{ steps.get-since.outputs.since }}
       
       - name: Update Since
-        runs: |
+        run: |
           date --iso-8601=seconds --utc > ./last-touched 
 
           git config --local user.email "cameron@cdbdesign.net"
