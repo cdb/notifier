@@ -29,8 +29,8 @@ jobs:
         run: |
           date --iso-8601=seconds --utc > ./last-touched 
 
-          git config --local user.email "cameron@cdbdesign.net"
-          git config --local user.name "Cameron [automated]"
+          git config --local user.email "scheduler@cdbdesign.net"
+          git config --local user.name "cdb Scheduler [automated]"
           
           git add ./last-touched
           git commit -m "update last-touched"
