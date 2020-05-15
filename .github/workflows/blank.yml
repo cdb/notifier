@@ -3,7 +3,7 @@ name: Post to Slack
 on:
   push:
   schedule:
-    - cron: "15,45 15-23,0-3 * * *"
+    - cron: "*/5 15-23,0-3 * * *"
 
 jobs:
   find-notifications:
