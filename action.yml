@@ -7,6 +7,9 @@ inputs:
   SLACK_URL:
     description: 'Slack incoming webhook URL'
     required: true
+  SINCE:
+    description: 'Timestamp to read notifications since'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'

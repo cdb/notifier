@@ -13,9 +13,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set Since
+        id: get-since
+        runs: |
+          echo "::set-output name=since::$(cat ./last-touched)"
+
       - name: Find Notifications
         uses: ./
         with:
           SLACK_URL: ${{ secrets.SLACK_URL }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          SINCE: ${{ steps.get-since.outputs.since }}
+      
+      - name: Update Since
+        runs: |
+          date --iso-8601=seconds --utc > ./last-touched 
+
+          git config --local user.email "cameron@cdbdesign.net"
+          git config --local user.name "Cameron [automated]"
+          
+          git add ./last-touched
+          git commit -m "update last-touched"
+          git push
     
