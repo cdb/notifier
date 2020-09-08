@@ -2,7 +2,7 @@ name: Slack CI Status
 # Action that runs when CI finishes only notify on the master branch
 on:
   check_suite:
-    types: [ completed ]
+    #types: [ completed ]
 
 jobs:
   notify_success:
