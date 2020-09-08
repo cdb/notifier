@@ -1,23 +1,13 @@
-name: Slack CI Status
-# Action that runs when CI finishes only notify on the master branch
+name: Testing check suite event
 on:
   check_suite:
     #types: [ completed ]
 
 jobs:
-  notify_success:
+  notify:
     runs-on: ubuntu-latest
-    if: github.event.check_suite.conclusion == 'success'
     steps:
-      - name: SUCCESS Dump context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-  notify_failure:
-    runs-on: ubuntu-latest
-    if: github.event.check_suite.conclusion != 'success'
-    steps:
-      - name: FAIL Dump context
+      - name: Dump context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
